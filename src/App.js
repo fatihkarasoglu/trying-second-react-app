@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { createModal, useModals } from "./utils/modal";
+import Modal from "./modals";
 
 function App() {
+
+  const modals = useModals()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {modals.length > 0 && <Modal />}
+      <button onClick={() => {
+        createModal('login')
+      }}>Modalı Aç</button>
     </div>
   );
 }
