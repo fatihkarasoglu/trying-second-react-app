@@ -12,7 +12,9 @@ const modal = createSlice({
             state.modals = [...state.modals, action.payload]
         },
         destroy: state => {
-
+            const data =[...state.modals]
+            data.pop()
+            state.modals = data
         },
         destroyAll: state => {
             state.modals = []
